@@ -1,8 +1,20 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ListingPage from "./pages/ListingPage";
+import DetailsPage from "./pages/DetailsPage";
 import "./App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<ListingPage />} />
+          <Route path="/warehouse/:id" element={<DetailsPage />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;
