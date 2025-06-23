@@ -27,7 +27,7 @@ const DetailsPage = () => {
   };
 
   return (
-    <div>
+    <div className="container details-form">
       <h2>Edit Warehouse</h2>
       <input name="name" value={formData.name} onChange={handleChange} />
       <input name="city" value={formData.city} onChange={handleChange} />

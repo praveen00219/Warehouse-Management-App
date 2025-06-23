@@ -3,3 +3,142 @@
   margin: 0 auto;
   text-align: center;
 }
+
+/*--- General Layout ----*/
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-field,
+.select-field {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 160px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus,
+.select-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.no-results {
+  color: #cc0000;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/*--------- Grid -----------*/
+.warehouse-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .warehouse-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .warehouse-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*------ Cards------ */
+.warehouse-card {
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 1rem;
+  list-style: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.warehouse-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.warehouse-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.warehouse-title:hover {
+  text-decoration: underline;
+}
+
+.warehouse-meta {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+/*-------- Details Page ----------------*/
+.details-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.details-form input[type="text"],
+.details-form input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.details-form label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: 500;
+}
+
+.details-form input[type="checkbox"] {
+  margin-left: 8px;
+}
+
+.details-form button {
+  background-color: #0077cc;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.details-form button:hover {
+  background-color: #005fa3;
+}

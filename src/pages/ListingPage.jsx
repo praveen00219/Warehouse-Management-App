@@ -18,24 +18,24 @@ const ListingPage = () => {
   );
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Warehouse Listings</h1>
+    <div className="container">
+      <h1 className="page-title">🏢 Warehouse Listings</h1>
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-4 mb-6">
+      <div className="filter-panel">
         <input
           onChange={(e) =>
             dispatch(setFilters({ searchQuery: e.target.value }))
           }
-          placeholder="Search by name"
-          className="border px-2 py-1 rounded w-full md:w-auto"
+          placeholder="🔍 Search by name"
+          className="input-field"
         />
 
         <select
           onChange={(e) => dispatch(setFilters({ city: e.target.value }))}
-          className="border px-2 py-1 rounded"
+          className="select-field"
         >
-          <option value="">All Cities</option>
+          <option value="">🌆 All Cities</option>
           {cities.map((city, idx) => (
             <option key={idx} value={city}>
               {city}
@@ -45,9 +45,9 @@ const ListingPage = () => {
 
         <select
           onChange={(e) => dispatch(setFilters({ cluster: e.target.value }))}
-          className="border px-2 py-1 rounded"
+          className="select-field"
         >
-          <option value="">All Clusters</option>
+          <option value="">🧩 All Clusters</option>
           {clusters.map((cluster, idx) => (
             <option key={idx} value={cluster}>
               {cluster}
@@ -60,30 +60,23 @@ const ListingPage = () => {
           onChange={(e) =>
             dispatch(setFilters({ spaceAvailable: Number(e.target.value) }))
           }
-          placeholder="Min Space"
-          className="border px-2 py-1 rounded"
+          placeholder="📦 Min Space"
+          className="input-field"
         />
       </div>
 
-      {/* List */}
+      {/* Listings */}
       {filteredData.length === 0 ? (
-        <p>No warehouses found matching criteria.</p>
+        <p className="no-results">❌ No warehouses found matching criteria.</p>
       ) : (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ul className="warehouse-grid">
           {filteredData.map((w) => (
-            <li
-              key={w.id}
-              className="p-4 border rounded shadow hover:bg-gray-50"
-            >
-              <Link
-                to={`/warehouse/${w.id}`}
-                className="text-lg font-semibold text-blue-600 hover:underline"
-              >
+            <li key={w.id} className="warehouse-card">
+              <Link to={`/warehouse/${w.id}`} className="warehouse-title">
                 {w.name}
               </Link>
-              <p className="text-sm text-gray-600">
-                City: {w.city} | Cluster: {w.cluster} | Space:{" "}
-                {w.space_available}
+              <p className="warehouse-meta">
+                📍 {w.city} | 🧭 {w.cluster} | 📦 {w.space_available} sq.ft.
               </p>
             </li>
           ))}
